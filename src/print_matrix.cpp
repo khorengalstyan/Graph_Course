@@ -1,11 +1,11 @@
 #include <iostream>
 
-void print_matrix(int **grid, const int rows, const int cols)
+void print_matrix(int **grid, unsigned int rows, unsigned int cols)
 {
-	const int lineHor = cols + 1;
-	const int lineVer = rows + 1;
-	std :: cout << "MATRIX OF RESSURETION\n";
-	for (int i = 0; i < (lineHor)*(lineVer);++i)
+	const unsigned int lineHor = cols + 1;
+	const unsigned int lineVer = rows + 1;
+	std :: cout << "\n\nADJACENCY MATRIX OF " << rows << "*" << cols << "SQUARE GRID\n\n\n";
+	for (size_t i = 0; i < (lineHor)*(lineVer);++i)
 	{
 		if (i == 0)
 		{
@@ -18,7 +18,7 @@ void print_matrix(int **grid, const int rows, const int cols)
 		
 	}
 	std :: cout << "\n";
-	for (int i = 0; i < (lineHor) * (lineVer); ++i)
+	for (size_t i = 0; i < (lineHor) * (lineVer); ++i)
 	{
 		if (i < 10)
 		{
@@ -33,7 +33,7 @@ void print_matrix(int **grid, const int rows, const int cols)
 			std :: cout << i;
 		}
 		
-		for (int j = 0; j < (lineHor) * (lineVer); ++j)
+		for (size_t j = 0; j < (lineHor) * (lineVer); ++j)
 		{
 			if (j < 10)
 			{

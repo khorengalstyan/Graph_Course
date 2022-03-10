@@ -7,7 +7,7 @@
 
 int main()
 {	
-	int rows_number,cols_number;	
+	unsigned int rows_number,cols_number;	
 	do
 	{	
 		std :: cout << "rows number in range [1,20] = ";
@@ -19,15 +19,16 @@ int main()
         std :: cout << "cols number in range [1,20] = ";
         std :: cin >> cols_number;
     } while (cols_number <= 0 || cols_number > 20);
-	int **grid = new int*[(rows_number+1)*(cols_number+1)];
-	for (int i = 0; i < (rows_number+1)*(cols_number+1); ++i)
+	unsigned int matrix_size = (rows_number+1) * (cols_number+1);
+	int **grid = new int*[matrix_size];
+	for (size_t i = 0; i < matrix_size; ++i)
 	{
-		grid[i] = new int[(cols_number+1)*(rows_number+1)];
+		grid[i] = new  int[matrix_size];
 	}
 	get_matrix(grid,cols_number,rows_number);
 	print_graph(rows_number, cols_number);
 	print_matrix(grid,rows_number,cols_number);
-	for (int i = 0; i < (rows_number+1)*(cols_number+1); ++i)
+	for (size_t i = 0; i < matrix_size; ++i)
 	{
     	delete []grid[i];
 	}

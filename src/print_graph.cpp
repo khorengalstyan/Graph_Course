@@ -1,26 +1,26 @@
 #include <iostream>
 
-void print_graph(const int cols, const int rows)
+void print_graph(unsigned int cols, unsigned int rows)
 {
-	const int lineHor = cols + 1;
-	const int lineVer = rows + 1;
+	const unsigned int lineHor = cols + 1;
+	const unsigned int lineVer = rows + 1;
 	std::string **matrix = new std::string*[5*(lineHor)];
-	for (int i = 0; i < 5*(lineHor); ++i)
+	for (size_t i = 0; i < 5*(lineHor); ++i)
 	{
 		matrix[i] = new std::string[7*(lineVer)];
 	}
 
-	for (int i = 0; i < 5*(lineHor); ++i)
+	for (size_t i = 0; i < 5*(lineHor); ++i)
 	{
-    	for (int j = 0; j < 7*(lineVer); ++j)
+    	for (size_t j = 0; j < 7*(lineVer); ++j)
 		{
 			matrix[i][j] = ' ';
 		}
 	}
 
-	for (int i = 0; i < 5*(lineHor); ++i)
+	for (size_t i = 0; i < 5*(lineHor); ++i)
 	{
-		for (int j = 0; j < 7*(lineVer); ++j)
+		for (size_t j = 0; j < 7*(lineVer); ++j)
 		{
 			if (i % 5 == 0)
 			{
@@ -36,9 +36,9 @@ void print_graph(const int cols, const int rows)
 	}
 	
 	std:: string split_string;
-	for (int i = 0; i < 5*(lineHor); i+=5)
+	for (size_t i = 0; i < 5*(lineHor); i+=5)
 	{
-		for (int j = 0; j < 7*(lineVer); j+=7)
+		for (size_t j = 0; j < 7*(lineVer); j+=7)
 		{
 			if (i == 0)
 			{
@@ -90,18 +90,18 @@ void print_graph(const int cols, const int rows)
 		}
 	}
 	
-	for (int i = 0; i < 5*(lineHor) - 4; ++i)
+	for (size_t i = 0; i < 5*(lineHor) - 4; ++i)
 	{
 		if (matrix[i][7*rows + 1] == "_")
 		{
-			for (int j = 0; j < 7*(lineVer) - 6; ++j)
+			for (size_t j = 0; j < 7*(lineVer) - 6; ++j)
 			{
 				std :: cout << matrix[i][j];
 			}
 		}
 		else
 		{
-			for (int j = 0; j < 7*(lineVer) - 5; ++j)
+			for (size_t j = 0; j < 7*(lineVer) - 5; ++j)
             {
                 std :: cout << matrix[i][j];
             }
@@ -110,7 +110,7 @@ void print_graph(const int cols, const int rows)
 		std :: cout << "\n";
 	}
 
-	for (int i = 0; i < 5*(lineHor); ++i)
+	for (size_t i = 0; i < 5*(lineHor); ++i)
     {
         delete []matrix[i];
     }
