@@ -37,15 +37,36 @@ void print_matrix(int **grid, unsigned int rows, unsigned int cols)
 		{
 			if (j < 10)
 			{
-				std :: cout << grid[i][j] << " ";
+				if (grid[i][j] == 0)
+				{
+					std :: cout << grid[i][j] << " ";
+				}
+				else
+				{
+					std :: cout << "\033[1;31m" << grid[i][j] << " \033[0m";
+				}
 			}
 			else if (j >= 10 && j <= 99)
 			{
-				std :: cout << grid[i][j] << "  ";
+				if (grid[i][j] == 0)
+				{
+					std :: cout << grid[i][j] << "  ";
+				}
+				else
+				{
+					std :: cout << "\033[1;31m" << grid[i][j] << "  \033[0m";
+				}
 			}
 			else
 			{
-				std :: cout << grid[i][j] << "   ";
+				if (grid[i][j] == 0)
+				{
+					std :: cout << grid[i][j] << "   ";
+				}
+				else
+				{
+					std :: cout << "\033[1;31m" << grid[i][j] << "   \033[0m";
+				}
 			}
 
 		}
