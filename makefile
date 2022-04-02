@@ -1,6 +1,6 @@
 
 TARGET = ../graph.exe
-FILE = matrix.txt
+FILE = data/matrix.txt
 
 SRC = src
 INC = include
@@ -10,7 +10,7 @@ SOURCE = $(wildcard $(SRC)/*.cpp)
 OBJECT=$(patsubst %,$(BIN)/%, $(notdir $(SOURCE:.cpp=.o)))
 
 CC = g++
-CFLAGS = -Wall -std=c++11 -I$(INC)
+CFLAGS = -std=c++17 -I$(INC)
 $(BIN)/$(TARGET) : $(OBJECT)
 		$(CC) -o $@ $^
 
