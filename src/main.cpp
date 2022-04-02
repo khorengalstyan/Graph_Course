@@ -1,9 +1,8 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
-#include "../include/get_matrix.hpp"
 #include "../include/print_graph.hpp"
-#include "../include/print_matrix.hpp"
+#include "../include/adjmatrix.hpp"
 
 int main()
 {	

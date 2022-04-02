@@ -1,5 +1,6 @@
 
 TARGET = ../graph.exe
+FILE = matrix.txt
 
 SRC = src
 INC = include
@@ -16,4 +17,4 @@ $(BIN)/$(TARGET) : $(OBJECT)
 $(BIN)/%.o : $(SRC)/%.cpp
 		$(CC) $(CFLAGS) -c $< -o $@ 
 clear :
-	rm -f $(OBJECT) $(BIN)/$(TARGET)                                                                                            
+	rm -f $(OBJECT) $(BIN)/$(TARGET) $(FILE)                                                                                            
