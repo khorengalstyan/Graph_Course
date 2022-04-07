@@ -1,10 +1,12 @@
 #include <cstdlib>
 #include <iostream>
+#include <list>
 #include <string>
 #include "../include/print_graph.hpp"
 #include "../include/adjmatrix.hpp"
 
-size_t extern edge;
+extern size_t edge;
+
 int main()
 {	
 	int rows_number,cols_number;	
@@ -29,6 +31,7 @@ int main()
 	print_graph(rows_number, cols_number);
 	get_matrix(grid,cols_number,rows_number);
 	print_matrix(grid,rows_number,cols_number);
+	
 	if (edge % 3 == 0)
 	{
 		threeLenghtSimpleChainCoverage(rows_number, cols_number);
@@ -37,8 +40,7 @@ int main()
 		{
     		delete []grid[i];
 		}
-		delete []grid;
-		return 0;
+		delete []grid;	
 	}
 	else
 	{
@@ -47,6 +49,6 @@ int main()
     		delete []grid[i];
 		}
 		delete []grid;
-		return 0;
 	}
+	return 0;
 }
