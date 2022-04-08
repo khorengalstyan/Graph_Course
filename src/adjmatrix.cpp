@@ -202,7 +202,7 @@ void printCoverage()
 {
 	if (edge % 3 == 0)
 	{		
-		std::cout << "\033[1;32mCOVERAGE\033[0m" << std::endl;
+		std::cout << "\033[1;32m	COVERAGE\033[0m" << std::endl;
 		size_t count = 0;
 		for (const auto& i : threeLenghtChains)
 		{	
@@ -213,8 +213,4 @@ void printCoverage()
 		
 		std::cout << std::endl;
     }
-	//else
-	//{
-	//	std::cout << "\033[1;31mNo Coverage\033[0m\n";
-	//}
 }
