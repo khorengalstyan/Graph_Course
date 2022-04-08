@@ -1,6 +1,6 @@
 
 TARGET = ../graph.exe
-FILE = data/matrix.txt
+FILE = data/adjacency_matrix.txt
 
 SRC = src
 INC = include

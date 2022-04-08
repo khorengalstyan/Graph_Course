@@ -1,11 +1,13 @@
-#include <cstdlib>
 #include <iostream>
 #include <list>
 #include <string>
-#include "../include/print_graph.hpp"
-#include "../include/adjmatrix.hpp"
 
-extern size_t edge;
+
+#include "../include/globals.hpp"
+#include "../include/matrixes.hpp"
+#include "../include/print_graph.hpp"
+#include "../include/solution.hpp"
+
 
 int main()
 {	
@@ -29,8 +31,8 @@ int main()
 		grid[i] = new  int[matrix_size];
 	}
 	print_graph(rows_number, cols_number);
-	get_matrix(grid,cols_number,rows_number);
-	print_matrix(grid,rows_number,cols_number);
+	get_adj_matrix(grid,cols_number,rows_number);
+	print_adj_matrix(grid,rows_number,cols_number);
 	
 	if (edge % 3 == 0)
 	{
