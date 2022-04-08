@@ -2,6 +2,6 @@
 #define SOLUTION_HPP
 
 void threeLenghtSimpleChainCoverage(unsigned int, unsigned int);
-void printCoverage();
+void printCoverage(unsigned int, unsigned int);
 
 #endif //SOLUTION_HPP

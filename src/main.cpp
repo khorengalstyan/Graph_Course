@@ -2,7 +2,6 @@
 #include <list>
 #include <string>
 
-
 #include "../include/globals.hpp"
 #include "../include/matrixes.hpp"
 #include "../include/print_graph.hpp"
@@ -11,33 +10,30 @@
 
 int main()
 {	
-	int rows_number,cols_number;	
-	do
-	{	
-		std :: cout << "rows number in range [1,20] = ";
-		std :: cin >> rows_number;
-	} while (rows_number <= 0 || rows_number > 20);
-		
-	do
-    {
-        std :: cout << "cols number in range [1,20] = ";
-        std :: cin >> cols_number;
-    } while (cols_number <= 0 || cols_number > 20);
+	int rows_number,cols_number;		
+	std :: cout << "rows number in range [1,20] = ";
+	std :: cin >> rows_number;
+    std :: cout << "cols number in range [1,20] = ";
+    std :: cin >> cols_number;
+    
 	unsigned int matrix_size = (rows_number+1) * (cols_number+1);
-	int **grid = new int*[matrix_size];
+	char **grid = new char*[matrix_size];
 	
 	for (size_t i = 0; i < matrix_size; ++i)
 	{
-		grid[i] = new  int[matrix_size];
+		grid[i] = new  char[matrix_size];
 	}
 	print_graph(rows_number, cols_number);
 	get_adj_matrix(grid,cols_number,rows_number);
-	print_adj_matrix(grid,rows_number,cols_number);
-	
+	char isMade = grid[0][1];
+	if (isMade == '1' && matrix_size < 53)
+	{
+		print_adj_matrix(grid,rows_number,cols_number);
+	}
 	if (edge % 3 == 0)
 	{
 		threeLenghtSimpleChainCoverage(rows_number, cols_number);
-		printCoverage();
+		printCoverage(rows_number, cols_number);
 		for (size_t i = 0; i < matrix_size; ++i)
 		{
     		delete []grid[i];

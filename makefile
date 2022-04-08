@@ -1,6 +1,8 @@
 
 TARGET = ../graph.exe
-FILE = data/adjacency_matrix.txt
+FILE1 = data/adjacency_matrix.txt
+FILE2 = data/graph.txt
+FILE3 = data/coverage.txt
 
 SRC = src
 INC = include
@@ -17,4 +19,4 @@ $(BIN)/$(TARGET) : $(OBJECT)
 $(BIN)/%.o : $(SRC)/%.cpp
 		$(CC) $(CFLAGS) -c $< -o $@ 
 clear :
-	rm -f $(OBJECT) $(BIN)/$(TARGET) $(FILE)                                                                                            
+	rm -f $(OBJECT) $(BIN)/$(TARGET) $(FILE1) $(FILE2) $(FILE3)                                                                                       

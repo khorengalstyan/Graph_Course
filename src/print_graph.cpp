@@ -1,3 +1,4 @@
+#include <fstream>
 #include <iostream>
 
 void print_graph(unsigned int cols, unsigned int rows)
@@ -28,13 +29,11 @@ void print_graph(unsigned int cols, unsigned int rows)
 			{
 				matrix[i][j] = '_';
 			}
-
 			if (j % 7 == 0)
 			{
 				matrix[i][j] = '|';
 			}
 		}
-
 	}
 	
 	std:: string split_string;
@@ -52,6 +51,7 @@ void print_graph(unsigned int cols, unsigned int rows)
 					{
 						split_string[t] = c[t];
 					}
+					
 					for (size_t p = 0; p < c.length(); ++p)
                 	{
                     	matrix[i][j+p] = split_string[p];                   
@@ -94,24 +94,45 @@ void print_graph(unsigned int cols, unsigned int rows)
 
 	size_t visibleVerSize = 5*(lineHor) - 4;
 	size_t visibleHorSize = 7*(lineVer) - 6;
-	
+	if (rows < 22)
+	{
+		for (size_t i = 0; i < visibleVerSize; ++i)
+		{
+			if (matrix[i][7*rows + 1] == "_")
+			{
+				for (size_t j = 0; j < visibleHorSize; ++j)
+				{
+					std :: cout << "\033[1;35m" << matrix[i][j] << "\033[0m";
+				}
+			}
+			else
+			{
+				for (size_t j = 0; j < visibleHorSize + 1; ++j)
+   	         {
+					std :: cout << "\033[1;35m" << matrix[i][j] << "\033[0m";
+	            }
+			}
+			std :: cout << "\n";
+		}
+	}
+	std :: ofstream myFile("data/graph.txt", std::ofstream::out | std::ofstream::trunc);
 	for (size_t i = 0; i < visibleVerSize; ++i)
 	{
 		if (matrix[i][7*rows + 1] == "_")
 		{
 			for (size_t j = 0; j < visibleHorSize; ++j)
 			{
-				std :: cout << "\033[1;35m" << matrix[i][j] << "\033[0m";
+				myFile << matrix[i][j];
 			}
 		}
 		else
 		{
 			for (size_t j = 0; j < visibleHorSize + 1; ++j)
             {
-				std :: cout << "\033[1;35m" << matrix[i][j] << "\033[0m";
+				myFile << matrix[i][j];
             }
 		}
-		std :: cout << "\n";
+		myFile << "\n";
 	}
 
 	for (size_t i = 0; i < 5*(lineHor); ++i)
