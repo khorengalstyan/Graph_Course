@@ -3,7 +3,6 @@
 
 void print_graph(unsigned int cols, unsigned int rows)
 {
-	system("clear");
 	const unsigned int lineHor = cols + 1;
 	const unsigned int lineVer = rows + 1;
 	std::string **matrix = new std::string*[5*(lineHor)];
@@ -104,11 +103,11 @@ void print_graph(unsigned int cols, unsigned int rows)
 				{
 					std :: cout << "\033[1;35m" << matrix[i][j] << "\033[0m";
 				}
-			}
+			} 
 			else
 			{
 				for (size_t j = 0; j < visibleHorSize + 1; ++j)
-   	         {
+   	         	{
 					std :: cout << "\033[1;35m" << matrix[i][j] << "\033[0m";
 	            }
 			}

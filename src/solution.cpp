@@ -80,12 +80,12 @@ void printCoverage(unsigned int rows, unsigned int cols)
 	std :: ofstream myFile("data/coverage.txt", std::ofstream::out | std::ofstream::trunc);
 	if (edge % 3 == 0)
 	{		
-		std::cout << "\033[1;32m	COVERAGE\033[0m" << std::endl;
+		std::cout << "\033[1;32m		       COVERAGE\033[0m" << std::endl;
 		size_t count = 0;
 		for (const auto& i : threeLenghtChains)
 		{	
 			myFile << count + 1 << ") "  << std::get<0>(i) << " --> " << std::get<1>(i) << " --> " << std::get<2>(i) << " --> " << std::get<3>(i) << "\n";
-			std::cout << "\033[1;31m" << count + 1 << ") \033[0m" << "\033[1;34m" << std::get<0>(i) << " --> " << std::get<1>(i) << " --> " << std::get<2>(i) << " --> " << std::get<3>(i) << "\033[0m\n";
+			std::cout << "\033[1;31m              " << count + 1 << ") \033[0m" << "\033[1;34m" << std::get<0>(i) << " --> " << std::get<1>(i) << " --> " << std::get<2>(i) << " --> " << std::get<3>(i) << "\033[0m\n";
 			++count;
 		}
 		std::cout << std::endl;

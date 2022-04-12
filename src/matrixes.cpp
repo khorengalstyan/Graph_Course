@@ -5,6 +5,7 @@
 
 void get_adj_matrix(char **grid, unsigned int rows, unsigned int cols)
 {
+	system("clear");
 	std :: ofstream myFile("data/adjacency_matrix.txt", std::ofstream::out | std::ofstream::trunc);
 	const unsigned int lineHor = cols + 1;
 	const unsigned int lineVer = rows + 1;
