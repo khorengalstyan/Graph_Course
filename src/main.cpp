@@ -3,7 +3,7 @@
 #include <list>
 #include <string>
 
-#include "../include/input_cr.hpp"
+#include "../include/input_size.hpp"
 #include "../include/input.hpp"
 #include "../include/matrixes.hpp"
 #include "../include/print_graph.hpp"
