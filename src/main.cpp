@@ -3,6 +3,7 @@
 #include <list>
 #include <string>
 
+#include "../include/input_cr.hpp"
 #include "../include/input.hpp"
 #include "../include/matrixes.hpp"
 #include "../include/print_graph.hpp"
@@ -11,87 +12,10 @@
 
 int main()
 {
-	cbreak();
-	system("clear");	
-	bool cycle = true; 
-	const int UP = 65;
-	const int DOWN = 66;
-	const int ENTER = 10;
-	int rows = 1;	
-	std::cout << "\033[1;32mrows : " << rows<<" ↑ ↓\033[0m" << std::endl;
-	while(cycle == true)
-	{
-		cbreak();
-		const int key = keypress();
-		switch(key)
-		{
-			case UP:
-			{
-				system("clear");
-				++rows;	
-				std::cout << "\033[1;32mrows : " << rows<<" ↑ ↓\033[0m" << std::endl;
-				break;
-			}
-			case  DOWN:
-			{	
-				if (rows > 1)
-				{
-					system("clear");
-					--rows;
-					std::cout<<"\033[1;32mrows : " << rows << " ↑ ↓\033[0m" << std::endl;
-					break;
-				}	
-				else
-				{
-					break;
-				}
-			}
-			case ENTER:
-			{
-				goto input_cols;
-			}
-		}
-	}
-
-input_cols:
 	system("clear");
-	int cols = 1;
-	std::cout << "\033[1;32mcols : " << cols<<" ↑ ↓\033[0m" << std::endl;
-	while(cycle == true)
-	{
-		cbreak();
-		const int key = keypress();
-		switch(key)
-		{
-			case UP:
-			{
-				system("clear");
-				++cols;
-				std::cout << "\033[1;32mcols : " << cols << " ↑ ↓\033[0m" << std::endl;
-				break;
-			}
-			case  DOWN:
-			{
-				if (cols > 1)
-				{
-					system("clear");
-					--cols;
-					std::cout << "\033[1;32mcols : " << cols << " ↑ ↓\033[0m" << std::endl;
-					break;
-				}
-				else
-				{
-					break;
-				}
-			}
-			case ENTER:
-			{
-				goto solution;
-			}
-		}
-	}
-
-solution:        
+	int cols = 0,rows = 0;
+	rows = input(rows,"rows");
+	cols = input(cols,"cols");
 	size_t edge = (rows + 1) * cols + (cols + 1) * rows;
 	unsigned int matrix_size = (rows + 1) * (cols + 1);
 	char **grid = new char*[matrix_size];
