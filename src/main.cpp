@@ -1,57 +1,77 @@
-#include <fstream>
 #include <iostream>
-#include <list>
-#include <string>
 
-#include "../include/input_size.hpp"
+#include "../include/menu.hpp"
+#include "../include/solver.hpp"
 #include "../include/input.hpp"
-#include "../include/matrixes.hpp"
-#include "../include/print_graph.hpp"
-#include "../include/solution.hpp"
 
+enum keys
+{
+    UP = 65,
+    DOWN = 66,
+    ENTER = 10,
+	ESC = 27,
+};
 
 int main()
 {
+	system("wmctrl -r ':ACTIVE:' -b toggle,fullscreen");
 	system("clear");
-	int cols = 0,rows = 0;
-	rows = input(rows,"rows");
-	cols = input(cols,"cols");
-	size_t edge = (rows + 1) * cols + (cols + 1) * rows;
-	unsigned int matrix_size = (rows + 1) * (cols + 1);
-	char **grid = new char*[matrix_size];
-	
-	for (size_t i = 0; i < matrix_size; ++i)
-	{
-		grid[i] = new  char[matrix_size];
-	}
-	get_adj_matrix(grid, cols, rows);
-	char isMade = grid[0][1];
-	if (isMade == '1' && matrix_size < 53)
-	{
-		print_adj_matrix(grid, rows, cols);
-	}
-	print_graph(rows, cols); 
-	if (edge % 3 == 0)
-	{
-		threeLenghtSimpleChainCoverage(rows, cols);
-		printCoverage(rows, cols);
-		for (size_t i = 0; i < matrix_size; ++i)
-		{
-    		delete []grid[i];
-		}
-		delete []grid;	
-	}
-	else
-	{
-		std::cout<<"\033[1;35mGRAPH HAS " << edge << " EDGES\n"; 
-		std::cout<<"\033[1;31mNO COVERAGE\033[0m\n";
-		std::ofstream myFile("data/coverage.txt", std::ofstream::out | std::ofstream::trunc);
-		myFile << "GRAPH HAS NO COVERAGE";
-		for (size_t i = 0; i < matrix_size; ++i)
-		{
-    		delete []grid[i];
-		}
-		delete []grid;
+    int point = 1;
+    print_menu(point);
+    cbreak();
+    while(1)
+    {
+        const int key = keypress();
+        switch(key)
+        {
+            case keys::UP:
+            {
+                --point;
+                if (point == 0)
+                {
+                    point = 3;
+                }
+                print_menu(point);
+                break;
+            }
+            case keys::DOWN:
+            {
+                ++point;
+                if (point == 4)
+                {
+                    point = 1;
+                }
+                print_menu(point);
+                break;
+            }
+            case keys::ENTER:
+            {
+                if (point == 1)
+                {
+                    solver();
+                    break;
+                }
+                if (point == 2)
+                {
+                    std::cout<<"hi\n";
+                    break;
+                }
+                if (point == 3)
+                {
+                    normal();
+					system("clear");
+					system("wmctrl -r ':ACTIVE:' -b toggle,fullscreen");
+                    exit(0);
+                }
+                break;
+            }
+			case keys::ESC:
+			{
+				system("clear");
+				print_menu(point);
+				break;	
+			}
+        }
 	}
 	normal();
 	return 0;

@@ -3,30 +3,34 @@
 
 #include "../include/input.hpp"
 
+enum keys
+{
+	UP = 65,
+	DOWN = 66,
+	ENTER = 10,
+};
+	
 int input(int size,std::string name)
 {
 	cbreak();
 	system("clear");
-	const int UP = 65;
-	const int DOWN = 66;    
-	const int ENTER = 10;
 	size = 1;
 	std::cout << "\033[1;32m" << name << " : " << size <<" ↑ ↓\033[0m\033[0m" << std::endl;
-
 	while(1)
     {
+		const int key = keypress();
         cbreak();
-        const int key = keypress();
+	
         switch(key)
         {
-            case UP:
+            case keys::UP:
             {
                 system("clear");
                 ++size;
                 std::cout << "\033[1;32m" << name << " : " << size <<" ↑ ↓\033[0m\033[0m" << std::endl;
                 break;
             }
-            case  DOWN:
+            case  keys::DOWN:
             {
                 if (size > 1)
                 {
@@ -40,11 +44,10 @@ int input(int size,std::string name)
                     break;
                 }
             }
-            case ENTER:
+            case keys::ENTER:
             {
                 return size;
             }
         }
     }
-}
-
+} 

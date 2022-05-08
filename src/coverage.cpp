@@ -3,7 +3,7 @@
 #include <list>
 #include <tuple>
 
-#include "../include/solution.hpp"
+#include "../include/coverage.hpp"
 
 using threeLenghtChain = std::tuple<size_t, size_t, size_t, size_t>;
 std::list <threeLenghtChain> threeLenghtChains;
