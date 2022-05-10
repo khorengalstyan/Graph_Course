@@ -1,12 +1,12 @@
 #include <fstream>
 #include <iostream>
-#include <list>
 #include <tuple>
+#include <vector>
 
 #include "../include/coverage.hpp"
 
 using threeLenghtChain = std::tuple<size_t, size_t, size_t, size_t>;
-std::list <threeLenghtChain> threeLenghtChains;
+std::vector<threeLenghtChain> threeLengthChains;
 
 void threeLenghtSimpleChainCoverage(unsigned int rows, unsigned int cols)
 {
@@ -19,7 +19,7 @@ void threeLenghtSimpleChainCoverage(unsigned int rows, unsigned int cols)
 		{
 			for (size_t j = 0; j < cols ; j += 3)
 			{
-				threeLenghtChains.push_back(std::make_tuple(i*cols+j+i,i*cols + i + j + 1, i*cols + i + j + 2, i*cols + i + j + 3));
+				threeLengthChains.push_back(std::make_tuple(i * cols + j + i, i * cols + i + j + 1, i * cols + i + j + 2, i * cols + i + j + 3));
 			}
 		}
 
@@ -27,7 +27,7 @@ void threeLenghtSimpleChainCoverage(unsigned int rows, unsigned int cols)
 		{
 			for (size_t j = 0; j < rows; j += 3)
 			{
-				threeLenghtChains.push_back(std::make_tuple(j * (cols + 1) + i, (j + 1) * (cols + 1) + i, (j + 2) * (cols + 1) + i , (j + 3) * (cols + 1) + i));
+				threeLengthChains.push_back(std::make_tuple(j * (cols + 1) + i, (j + 1) * (cols + 1) + i, (j + 2) * (cols + 1) + i , (j + 3) * (cols + 1) + i));
 			}
 		}
 	}
@@ -39,11 +39,11 @@ void threeLenghtSimpleChainCoverage(unsigned int rows, unsigned int cols)
 			{
 				if (j != cols - 2)
 				{
-					threeLenghtChains.push_back(std::make_tuple(i * cols + j + i,i * cols + i + j + 1, i * cols + i + j + 2, i * cols + i + j + 3));
+					threeLengthChains.push_back(std::make_tuple(i * cols + j + i,i * cols + i + j + 1, i * cols + i + j + 2, i * cols + i + j + 3));
 				}
 				else
 				{
-					threeLenghtChains.push_back(std::make_tuple(i * cols + j + i, i * cols + i + j + 1, i * cols + i + j + 2, i * cols + 2 * cols + 1 + i));
+					threeLengthChains.push_back(std::make_tuple(i * cols + j + i, i * cols + i + j + 1, i * cols + i + j + 2, i * cols + 2 * cols + 1 + i));
 				}
 			}
 		}
@@ -54,11 +54,11 @@ void threeLenghtSimpleChainCoverage(unsigned int rows, unsigned int cols)
 			{
 				if (j != rows - 2)
 				{
-					threeLenghtChains.push_back(std::make_tuple(j * (cols + 1) + i, (j + 1) * (cols + 1) + i, (j + 2) * (cols + 1) + i , (j + 3) * (cols + 1) + i));
+					threeLengthChains.push_back(std::make_tuple(j * (cols + 1) + i, (j + 1) * (cols + 1) + i, (j + 2) * (cols + 1) + i , (j + 3) * (cols + 1) + i));
 				}
 				else
 				{
-					threeLenghtChains.push_back(std::make_tuple(j * (cols + 1) + i, (j + 1) * (cols + 1) + i, (j + 2) * (cols + 1) + i , (j + 2) * (cols + 1) + i + 1));
+					threeLengthChains.push_back(std::make_tuple(j * (cols + 1) + i, (j + 1) * (cols + 1) + i, (j + 2) * (cols + 1) + i , (j + 2) * (cols + 1) + i + 1));
 				}
 			}
 		}
@@ -73,10 +73,10 @@ void printCoverage(unsigned int rows, unsigned int cols)
 	{		
 		std::cout << "\033[1;32m		       COVERAGE\033[0m" << std::endl;
 		size_t count = 0;
-		for (const auto& i : threeLenghtChains)
+		for (size_t i = 0; i < threeLengthChains.size(); ++i)
 		{	
-			myFile << count + 1 << ") "  << std::get<0>(i) << " --> " << std::get<1>(i) << " --> " << std::get<2>(i) << " --> " << std::get<3>(i) << "\n";
-			std::cout << "\033[1;31m              " << count + 1 << ") \033[0m" << "\033[1;34m" << std::get<0>(i) << " --> " << std::get<1>(i) << " --> " << std::get<2>(i) << " --> " << std::get<3>(i) << "\033[0m\n";
+			myFile << count + 1 << ") "  << std::get<0>(threeLengthChains[i]) << " --> " << std::get<1>(threeLengthChains[i]) << " --> " << std::get<2>(threeLengthChains[i]) << " --> " << std::get<3>(threeLengthChains[i]) << "\n";
+			std::cout << "\033[1;31m              " << count + 1 << ") \033[0m" << "\033[1;34m" << std::get<0>(threeLengthChains[i]) << " --> " << std::get<1>(threeLengthChains[i]) << " --> " << std::get<2>(threeLengthChains[i]) << " --> " << std::get<3>(threeLengthChains[i]) << "\033[0m\n";
 			++count;
 		}
 		std::cout << std::endl;
