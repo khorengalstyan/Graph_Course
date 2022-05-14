@@ -3,7 +3,7 @@
 
 #include <../include/matrixes.hpp>
 
-void get_adj_matrix(char **grid, unsigned int rows, unsigned int cols)
+void getAdjacencyMatrix(char **grid, unsigned int rows, unsigned int cols)
 {
 	system("clear");
 	std::ofstream myFile("data/adjacency_matrix.txt", std::ofstream::out | std::ofstream::trunc);
@@ -86,7 +86,7 @@ void get_adj_matrix(char **grid, unsigned int rows, unsigned int cols)
 	myFile.close();
 }
  	
-void print_adj_matrix(char **grid, unsigned int rows, unsigned int cols)
+void printAdjacencyMatrix(char **grid, unsigned int rows, unsigned int cols)
 {
 	const unsigned int lineHor = cols + 1;
 	const unsigned int lineVer = rows + 1;

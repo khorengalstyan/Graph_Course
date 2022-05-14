@@ -2,7 +2,9 @@
 #include <string>
 
 #include "../include/input.hpp"
-#include "../include/print.hpp"
+#include "../include/inputSize.hpp"
+#include "../include/printAscii.hpp"
+#include "../include/menu.hpp"
 
 enum keys
 {
@@ -11,13 +13,13 @@ enum keys
 	ENTER = 10,
 };
 	
-int input(int size,std::string name)
+int inputSize(int size,std::string name)
 {
 	cbreak();
 	system("clear");
 	printSolution();
 	size = 1;
-	std::cout <<"\t\t\t\t\t\t\t   "<< "\033[1;32m" << name << " : " << size <<" ↑ ↓\033[0m\033[0m" << std::endl;
+	std::cout <<"\n\n\t\t\t\t\t\t\t   "<< "\033[1;32m" << name << " : " << size <<" ↑ ↓\033[0m\033[0m" << std::endl;
 	while(1)
     {
 		const int key = keypress();
@@ -30,7 +32,7 @@ int input(int size,std::string name)
                 system("clear");
 				printSolution();
                 ++size;
-                std::cout <<"\t\t\t\t\t\t\t   "<< "\033[1;32m" << name << " : " << size <<" ↑ ↓\033[0m\033[0m" << std::endl;
+                std::cout <<"\n\n\t\t\t\t\t\t\t   "<< "\033[1;32m" << name << " : " << size <<" ↑ ↓\033[0m\033[0m" << std::endl;
                 break;
             }
             case  keys::DOWN:
@@ -40,7 +42,7 @@ int input(int size,std::string name)
 					system("clear");
 					printSolution();
                     --size;
-					std::cout <<"\t\t\t\t\t\t\t   "<< "\033[1;32m" << name << " : " << size <<" ↑ ↓\033[0m\033[0m" << std::endl;
+					std::cout <<"\n\n\t\t\t\t\t\t\t   "<< "\033[1;32m" << name << " : " << size <<" ↑ ↓\033[0m\033[0m" << std::endl;
                     break;
                 }
                 else

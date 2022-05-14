@@ -1,7 +1,9 @@
 #include <iostream>
 
-#include "../include/print.hpp"
-void print_menu(int point)
+#include "../include/menu.hpp"
+#include "../include/printAscii.hpp"
+
+void Menu(int point)
 
 {
 	switch(point)

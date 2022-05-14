@@ -3,7 +3,9 @@
 #include "../include/menu.hpp"
 #include "../include/solver.hpp"
 #include "../include/input.hpp"
-#include "../include/print.hpp"
+#include "../include/printAscii.hpp"
+#include "../include/printText.hpp"
+
 
 enum keys
 {
@@ -18,7 +20,7 @@ int main()
 	system("wmctrl -r ':ACTIVE:' -b toggle,fullscreen");
 	system("clear");
     int point = 1;
-    print_menu(point);
+    Menu(point);
     cbreak();
     while(1)
     {
@@ -32,7 +34,7 @@ int main()
                 {
                     point = 3;
                 }
-                print_menu(point);
+                Menu(point);
                 break;
             }
             case keys::DOWN:
@@ -42,7 +44,7 @@ int main()
                 {
                     point = 1;
                 }
-                print_menu(point);
+                Menu(point);
                 break;
             }
             case keys::ENTER:
@@ -54,13 +56,16 @@ int main()
                 }
                 if (point == 2)
                 {
+					system("clear");
                     printGuide();
+					printGuideText();
+					printHowToUse();
                     break;
                 }
                 if (point == 3)
                 {
-                    normal();
 					system("clear");
+                    normal();
 					system("wmctrl -r ':ACTIVE:' -b toggle,fullscreen");
                     exit(0);
                 }
@@ -69,11 +74,10 @@ int main()
 			case keys::ESC:
 			{
 				system("clear");
-				print_menu(point);
+				Menu(point);
 				break;	
 			}
         }
 	}
-	normal();
 	return 0;
 }

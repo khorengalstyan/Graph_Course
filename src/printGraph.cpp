@@ -1,7 +1,9 @@
 #include <fstream>
 #include <iostream>
 
-void print_graph(unsigned int cols, unsigned int rows)
+#include "../include/printGraph.hpp"
+
+void printGraph(unsigned int cols, unsigned int rows)
 {
 	const unsigned int lineHor = cols + 1;
 	const unsigned int lineVer = rows + 1;
@@ -93,6 +95,7 @@ void print_graph(unsigned int cols, unsigned int rows)
 
 	size_t visibleVerSize = 5 * lineHor - 4;
 	size_t visibleHorSize = 7 * lineVer - 6;
+	
 	if (rows < 22)
 	{
 		for (size_t i = 0; i < visibleVerSize; ++i)

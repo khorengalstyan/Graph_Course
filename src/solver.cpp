@@ -1,19 +1,20 @@
 #include <fstream>
 #include <iostream>
 
-#include "../include/input_size.hpp"
-#include "../include/print.hpp"
-#include "../include/print_graph.hpp"
+#include "../include/inputSize.hpp"
+#include "../include/printAscii.hpp"
+#include "../include/printGraph.hpp"
 #include "../include/coverage.hpp"
 #include "../include/matrixes.hpp"
+#include "../include/solver.hpp"
 
 void solver()
 {
 	printSolution();
 	int rows,cols;
 	rows = cols = 0;	
-	rows = input(rows,"rows");
-    cols = input(cols,"cols");
+	rows = inputSize(rows,"rows");
+    cols = inputSize(cols,"cols");
     size_t edge = (rows + 1) * cols + (cols + 1) * rows;
     unsigned int matrix_size = (rows + 1) * (cols + 1);
     char **grid = new char*[matrix_size];
@@ -22,13 +23,13 @@ void solver()
     {
         grid[i] = new  char[matrix_size];
     }
-    get_adj_matrix(grid, cols, rows);
+    getAdjacencyMatrix(grid, cols, rows);
     char isMade = grid[0][1];
     if (isMade == '1' && matrix_size < 53)
     {
-        print_adj_matrix(grid, rows, cols);
+        printAdjacencyMatrix(grid, rows, cols);
     }
-    print_graph(rows, cols);
+    printGraph(rows, cols);
     if (edge % 3 == 0)
     {
         threeLenghtSimpleChainCoverage(rows, cols);
