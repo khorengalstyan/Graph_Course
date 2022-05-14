@@ -3,6 +3,7 @@
 #include "../include/menu.hpp"
 #include "../include/solver.hpp"
 #include "../include/input.hpp"
+#include "../include/print.hpp"
 
 enum keys
 {
@@ -53,7 +54,7 @@ int main()
                 }
                 if (point == 2)
                 {
-                    std::cout<<"hi\n";
+                    printGuide();
                     break;
                 }
                 if (point == 3)

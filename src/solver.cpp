@@ -2,12 +2,14 @@
 #include <iostream>
 
 #include "../include/input_size.hpp"
+#include "../include/print.hpp"
 #include "../include/print_graph.hpp"
 #include "../include/coverage.hpp"
 #include "../include/matrixes.hpp"
 
 void solver()
-{	
+{
+	printSolution();
 	int rows,cols;
 	rows = cols = 0;	
 	rows = input(rows,"rows");

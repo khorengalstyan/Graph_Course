@@ -114,6 +114,7 @@ void print_graph(unsigned int cols, unsigned int rows)
 			std::cout << "\n";
 		}
 	}
+	
 	std::ofstream myFile("data/graph.txt", std::ofstream::out | std::ofstream::trunc);
 	for (size_t i = 0; i < visibleVerSize; ++i)
 	{
