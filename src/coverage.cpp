@@ -69,6 +69,7 @@ void printCoverage(unsigned int rows, unsigned int cols)
 {
 	size_t edge = rows * (cols + 1) + cols * (rows + 1);
 	std::ofstream myFile("data/coverage.txt", std::ofstream::out | std::ofstream::trunc);
+	
 	if (edge % 3 == 0)
 	{		
 		std::cout << "\033[1;32m		       COVERAGE\033[0m" << std::endl;

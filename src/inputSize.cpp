@@ -11,6 +11,7 @@ enum keys
 	UP = 65,
 	DOWN = 66,
 	ENTER = 10,
+	ESC = 27,
 };
 	
 int inputSize(int size,std::string name)
@@ -18,7 +19,7 @@ int inputSize(int size,std::string name)
 	cbreak();
 	system("clear");
 	printSolution();
-	size = 1;
+	size = 0;
 	std::cout <<"\n\n\t\t\t\t\t\t\t   "<< "\033[1;32m" << name << " : " << size <<" ↑ ↓\033[0m\033[0m" << std::endl;
 	while(1)
     {
@@ -37,7 +38,7 @@ int inputSize(int size,std::string name)
             }
             case  keys::DOWN:
             {
-                if (size > 1)
+                if (size > 0)
                 {
 					system("clear");
 					printSolution();
