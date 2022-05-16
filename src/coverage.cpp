@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "../include/coverage.hpp"
+#include "../include/gotoXY.hpp"
 
 using threeLenghtChain = std::tuple<size_t, size_t, size_t, size_t>;
 std::vector<threeLenghtChain> threeLengthChains;

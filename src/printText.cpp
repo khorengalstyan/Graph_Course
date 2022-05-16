@@ -2,6 +2,7 @@
 
 #include "../include/printText.hpp"
 #include "../include/printAscii.hpp"
+#include "../include/gotoXY.hpp"
 
 using std::cout;
 
