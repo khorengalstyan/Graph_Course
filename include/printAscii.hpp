@@ -4,7 +4,6 @@
 void printSolution();
 void printMenu();
 void printGuide();
-void printHowToUse();
-void printExit();
+void printGithub();
 
 #endif

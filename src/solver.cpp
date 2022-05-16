@@ -32,7 +32,7 @@ void solver()
     printGraph(rows, cols);
     std::ofstream myFile("data/coverage.txt", std::ofstream::out | std::ofstream::trunc);
 
-    if (edge % 3 == 0 && edge != 0)
+    if (edge % 3 == 0)
     {
         threeLenghtSimpleChainCoverage(rows, cols);
         printCoverage(rows, cols);
@@ -47,18 +47,12 @@ void solver()
 		std::cout<<"\033[1;35mGRAPH HAS " << edge << " EDGES\n";
 		std::cout<<"\033[1;31mNO COVERAGE\033[0m\n";
 		myFile << "GRAPH HAS NO COVERAGE";
+		for (size_t i = 0; i < matrix_size; ++i)
+        {
+            delete []grid[i];
+        }
+        delete []grid;
 	}
-	else if (edge == 0)
-	{
-		system("clear");
-		std::cout<<"\033[1;31mGRAPH HAS NO EDGES AND CAN'T BE COVERED\033[0m\n";
-		myFile << "GRAPH HAS NO EDGES AND CAN'T BE COVERED\n";
-	}
-	for (size_t i = 0; i < matrix_size; ++i)
-	{
-		delete []grid[i];
-	}
-	delete []grid;
 }
 
 

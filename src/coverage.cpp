@@ -70,7 +70,7 @@ void printCoverage(unsigned int rows, unsigned int cols)
 	size_t edge = rows * (cols + 1) + cols * (rows + 1);
 	std::ofstream myFile("data/coverage.txt", std::ofstream::out | std::ofstream::trunc);
 	
-	if (edge % 3 == 0)
+	if (edge % 3 == 0 && edge != 0)
 	{		
 		std::cout << "\033[1;32m		       COVERAGE\033[0m" << std::endl;
 		size_t count = 0;
@@ -82,10 +82,11 @@ void printCoverage(unsigned int rows, unsigned int cols)
 		}
 		std::cout << std::endl;
     }
-	else
+	else if (edge == 0)
 	{
-		std::ofstream myFile("coverage.txt", std::ofstream::out | std::ofstream::trunc);
-		myFile << "GRAPH HAS NO COVERAGE\n";
+		system("clear");
+		std::cout << "\033[1;31mGRAPH HAS NO COVERAGE\033[0m\n";
 	}
+	threeLengthChains.clear();
 	myFile.close();
 }

@@ -59,7 +59,6 @@ int main()
 					system("clear");
                     printGuide();
 					printGuideText();
-					printHowToUse();
                     break;
                 }
                 if (point == 3)
