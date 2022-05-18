@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "../include/inputSize.hpp"
+#include "../include/printText.hpp"
 #include "../include/printAscii.hpp"
 #include "../include/printGraph.hpp"
 #include "../include/coverage.hpp"
@@ -32,27 +33,21 @@ void solver()
     printGraph(rows, cols);
     std::ofstream myFile("data/coverage.txt", std::ofstream::out | std::ofstream::trunc);
 
-    if (edge % 3 == 0)
+    if (edge % 3 == 0 && edge != 0)
     {
         threeLenghtSimpleChainCoverage(rows, cols);
         printCoverage(rows, cols);
-        for (size_t i = 0; i < matrix_size; ++i)
-        {
-            delete []grid[i];
-        }
-        delete []grid;
     }	
-    else if (edge % 3 != 0)
+    else 
     {
-		std::cout<<"\033[1;35mGRAPH HAS " << edge << " EDGES\n";
-		std::cout<<"\033[1;31mNO COVERAGE\033[0m\n";
+		printNoCoverage();	
 		myFile << "GRAPH HAS NO COVERAGE";
-		for (size_t i = 0; i < matrix_size; ++i)
-        {
-            delete []grid[i];
-        }
-        delete []grid;
 	}
+	for (size_t i = 0; i < matrix_size; ++i)
+    {
+		delete []grid[i];
+    }
+    delete []grid;
 }
 
 

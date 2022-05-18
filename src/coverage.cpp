@@ -12,8 +12,7 @@ std::vector<threeLenghtChain> threeLengthChains;
 void threeLenghtSimpleChainCoverage(unsigned int rows, unsigned int cols)
 {
 	size_t edge = rows * (cols + 1) + cols * (rows + 1);
-    	
-	std::cout << "\033[1;35mGRAPH HAS " <<  edge << " EDGES AND CAN BE COVERED BY " << edge / 3 << " THREE LENGTH SIMPLE CHAINS\n";
+    
 	if (rows % 3 == 0 && cols % 3 == 0)
 	{
 		for (size_t i = 0; i < rows + 1; ++i)
@@ -40,7 +39,7 @@ void threeLenghtSimpleChainCoverage(unsigned int rows, unsigned int cols)
 			{
 				if (j != cols - 2)
 				{
-					threeLengthChains.push_back(std::make_tuple(i * cols + j + i,i * cols + i + j + 1, i * cols + i + j + 2, i * cols + i + j + 3));
+					threeLengthChains.push_back(std::make_tuple(i * cols + j + i, i * cols + i + j + 1, i * cols + i + j + 2, i * cols + i + j + 3));
 				}
 				else
 				{
@@ -83,11 +82,6 @@ void printCoverage(unsigned int rows, unsigned int cols)
 		}
 		std::cout << std::endl;
     }
-	else if (edge == 0)
-	{
-		system("clear");
-		std::cout << "\033[1;31mGRAPH HAS NO COVERAGE\033[0m\n";
-	}
 	threeLengthChains.clear();
 	myFile.close();
 }

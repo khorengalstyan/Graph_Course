@@ -3,4 +3,4 @@
 
 void gotoXY(int ,int);
 
-#endif
+#endif // GOTOXY_HPP

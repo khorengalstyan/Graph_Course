@@ -6,4 +6,4 @@ void printMenu();
 void printGuide();
 void printGithub();
 
-#endif
+#endif  // PRINT_ASCII_HPP

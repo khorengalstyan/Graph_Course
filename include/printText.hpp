@@ -2,5 +2,6 @@
 #define PRINT_TEXT_HPP
 
 void printGuideText();
+void printNoCoverage();
 
-#endif
+#endif // PRINT_TEXT_HPP

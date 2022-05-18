@@ -3,4 +3,4 @@
 
 void Menu(int);
 
-#endif
+#endif  // MENU_HPP
