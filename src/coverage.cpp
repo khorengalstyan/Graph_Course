@@ -69,11 +69,12 @@ void printCoverage(unsigned int rows, unsigned int cols)
 {
 	size_t edge = rows * (cols + 1) + cols * (rows + 1);
 	std::ofstream myFile("data/coverage.txt", std::ofstream::out | std::ofstream::trunc);
-	
+		
 	if (edge % 3 == 0 && edge != 0)
 	{		
 		std::cout << "\033[1;32m		       COVERAGE\033[0m" << std::endl;
 		size_t count = 0;
+		myFile<<"Coverage of " << rows << " * " << cols <<" grid graph\n";
 		for (size_t i = 0; i < threeLengthChains.size(); ++i)
 		{	
 			myFile << count + 1 << ") "  << std::get<0>(threeLengthChains[i]) << " --> " << std::get<1>(threeLengthChains[i]) << " --> " << std::get<2>(threeLengthChains[i]) << " --> " << std::get<3>(threeLengthChains[i]) << "\n";
@@ -85,3 +86,11 @@ void printCoverage(unsigned int rows, unsigned int cols)
 	threeLengthChains.clear();
 	myFile.close();
 }
+
+void printNoCoverage(unsigned int rows, unsigned int cols)
+{
+    std::cout<<"\033[1;31m  HAS NO COVERAGE\033[0m\n";
+	std::ofstream myFile("data/coverage.txt", std::ofstream::out | std::ofstream::trunc);
+	myFile<<rows<<" * " << cols << " grid graph has no ceverage\n";
+}
+

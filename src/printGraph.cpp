@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <vector>
 
 #include "../include/printGraph.hpp"
 
@@ -7,18 +8,12 @@ void printGraph(unsigned int cols, unsigned int rows)
 {
 	const unsigned int lineHor = cols + 1;
 	const unsigned int lineVer = rows + 1;
-	std::string **matrix = new std::string*[5 * lineHor];
-	
-	for (size_t i = 0; i < 5 * lineHor; ++i)
-	{
-		matrix[i] = new std::string[7 * lineVer];
-	}
-
+	std::vector<std::vector<std::string>> graph(5 * lineHor, std::vector<std::string>(7 * lineVer));
 	for (size_t i = 0; i < 5 * lineHor; ++i)
 	{
     	for (size_t j = 0; j < 7 * lineVer; ++j)
 		{
-			matrix[i][j] = ' ';
+			graph[i][j] = ' ';
 		}
 	}
 
@@ -28,11 +23,11 @@ void printGraph(unsigned int cols, unsigned int rows)
 		{
 			if (i % 5 == 0)
 			{
-				matrix[i][j] = '_';
+				graph[i][j] = '_';
 			}
 			if (j % 7 == 0)
 			{
-				matrix[i][j] = '|';
+				graph[i][j] = '|';
 			}
 		}
 	}
@@ -55,12 +50,12 @@ void printGraph(unsigned int cols, unsigned int rows)
 					
 					for (size_t p = 0; p < c.length(); ++p)
                 	{
-                    	matrix[i][j + p] = split_string[p];                   
+                    	graph[i][j + p] = split_string[p];                   
                 	}
 				}
 				else 
 				{
-					matrix[i][j] = c;
+					graph[i][j] = c;
 				}
 			}
 			else
@@ -77,17 +72,17 @@ void printGraph(unsigned int cols, unsigned int rows)
                 	{
                     	if (j != 0)
                     	{
-                        	matrix[i][j + p - 1] = split_string[p];
+                        	graph[i][j + p - 1] = split_string[p];
                     	}
 						else
 						{
-							matrix[i][j + p] = split_string[p];
+							graph[i][j + p] = split_string[p];
 						}
                 	}
                 }
 				else 
 				{
-					matrix[i][j] = c;
+					graph[i][j] = c;
 				}   
 			}
 		}
@@ -100,18 +95,18 @@ void printGraph(unsigned int cols, unsigned int rows)
 	{
 		for (size_t i = 0; i < visibleVerSize; ++i)
 		{
-			if (matrix[i][7 * rows + 1] == "_")
+			if (graph[i][7 * rows + 1] == "_")
 			{
 				for (size_t j = 0; j < visibleHorSize; ++j)
 				{
-					std::cout << "\033[1;35m" << matrix[i][j] << "\033[0m";
+					std::cout << "\033[1;35m" << graph[i][j] << "\033[0m";
 				}
 			} 
 			else
 			{
 				for (size_t j = 0; j < visibleHorSize + 1; ++j)
    	         	{
-					std::cout << "\033[1;35m" << matrix[i][j] << "\033[0m";
+					std::cout << "\033[1;35m" << graph[i][j] << "\033[0m";
 	            }
 			}
 			std::cout << "\n";
@@ -121,27 +116,21 @@ void printGraph(unsigned int cols, unsigned int rows)
 	std::ofstream myFile("data/graph.txt", std::ofstream::out | std::ofstream::trunc);
 	for (size_t i = 0; i < visibleVerSize; ++i)
 	{
-		if (matrix[i][7 * rows + 1] == "_")
+		if (graph[i][7 * rows + 1] == "_")
 		{
 			for (size_t j = 0; j < visibleHorSize; ++j)
 			{
-				myFile << matrix[i][j];
+				myFile << graph[i][j];
 			}
 		}
 		else
 		{
 			for (size_t j = 0; j < visibleHorSize + 1; ++j)
             {
-				myFile << matrix[i][j];
+				myFile << graph[i][j];
             }
 		}
 		myFile << "\n";
 	}
-
-	for (size_t i = 0; i < 5* lineHor; ++i)
-    {
-        delete []matrix[i];
-    }
-    delete []matrix;
 }
 

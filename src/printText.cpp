@@ -29,7 +29,3 @@ void printGuideText()
 	cout<<"\n\t\t\t\t\t\033[1;31m     https://github.com/khorengalstyan/Graph_Course\033[0m\n";
 }
 
-void printNoCoverage()
-{
-	std::cout<<"\033[1;31m GRAPH HAS NO COVERAGE\033[0m\n";
-}
