@@ -3,7 +3,7 @@
 
 #include <vector>
 
-void getAdjacencyMatrix(std::vector<std::vector<char>> & , unsigned int, unsigned int);
-void printAdjacencyMatrix(std::vector<std::vector<char>> &, unsigned int, unsigned int);
+void getAdjacencyMatrix(std::vector<std::vector<char>> & , size_t, size_t);
+void printAdjacencyMatrix(std::vector<std::vector<char>> &, size_t, size_t);
 
 #endif //MATRIXES_HPP

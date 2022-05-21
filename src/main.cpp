@@ -22,7 +22,7 @@ int main()
 {
 	system("wmctrl -r ':ACTIVE:' -b toggle,fullscreen");
 	system("clear");
-    int point = 1;
+    size_t point = 1;
     Menu(point);
     cbreak();
 	bool isHiden = false;

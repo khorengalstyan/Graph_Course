@@ -9,7 +9,7 @@
 using threeLenghtChain = std::tuple<size_t, size_t, size_t, size_t>;
 std::vector<threeLenghtChain> threeLengthChains;
 
-void threeLenghtSimpleChainCoverage(unsigned int rows, unsigned int cols)
+void threeLenghtSimpleChainCoverage(size_t rows, size_t cols)
 {
 	size_t edge = rows * (cols + 1) + cols * (rows + 1);
     
@@ -65,7 +65,7 @@ void threeLenghtSimpleChainCoverage(unsigned int rows, unsigned int cols)
 	}
 }
 
-void printCoverage(unsigned int rows, unsigned int cols)
+void printCoverage(size_t rows, size_t cols)
 {
 	size_t edge = rows * (cols + 1) + cols * (rows + 1);
 	std::ofstream myFile("data/coverage.txt", std::ofstream::out | std::ofstream::trunc);
@@ -87,7 +87,7 @@ void printCoverage(unsigned int rows, unsigned int cols)
 	myFile.close();
 }
 
-void printNoCoverage(unsigned int rows, unsigned int cols)
+void printNoCoverage(size_t rows, size_t cols)
 {
     std::cout<<"\033[1;31m  HAS NO COVERAGE\033[0m\n";
 	std::ofstream myFile("data/coverage.txt", std::ofstream::out | std::ofstream::trunc);

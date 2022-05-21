@@ -1,8 +1,8 @@
 #ifndef COVERAGE_HPP
 #define COVERAGE_HPP
 
-void threeLenghtSimpleChainCoverage(unsigned int, unsigned int);
-void printCoverage(unsigned int, unsigned int);
-void printNoCoverage(unsigned int, unsigned int);
+void threeLenghtSimpleChainCoverage(size_t, size_t);
+void printCoverage(size_t, size_t);
+void printNoCoverage(size_t, size_t);
 
 #endif // COVERAGE_HPP

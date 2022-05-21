@@ -14,7 +14,7 @@ enum keys
 	ESC = 27,
 };
 	
-int inputSize(int size,std::string name)
+int inputSize(size_t size,std::string name)
 {
 	cbreak();
 	system("clear");

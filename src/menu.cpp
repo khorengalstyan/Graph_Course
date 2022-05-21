@@ -3,7 +3,7 @@
 #include "../include/menu.hpp"
 #include "../include/printAscii.hpp"
 
-void Menu(int point)
+void Menu(size_t point)
 
 {
 	switch(point)

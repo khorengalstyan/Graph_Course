@@ -3,12 +3,11 @@
 
 #include <../include/matrixes.hpp>
 
-void getAdjacencyMatrix(std::vector<std::vector<char>> & grid, unsigned int rows, unsigned int cols)
+void getAdjacencyMatrix(std::vector<std::vector<char>> & grid, size_t rows, size_t cols)
 {
-	system("clear");
 	std::ofstream myFile("data/adjacency_matrix.txt", std::ofstream::out | std::ofstream::trunc);
-	const unsigned int lineHor = cols + 1;
-	const unsigned int lineVer = rows + 1;
+	const size_t lineHor = cols + 1;
+	const size_t lineVer = rows + 1;
 	
 	for (size_t i = 0; i < lineHor * lineVer; ++i)
 	{
@@ -86,10 +85,10 @@ void getAdjacencyMatrix(std::vector<std::vector<char>> & grid, unsigned int rows
 	myFile.close();
 }
  	
-void printAdjacencyMatrix(std::vector<std::vector<char>> & grid, unsigned int rows, unsigned int cols)
-{
-	const unsigned int lineHor = cols + 1;
-	const unsigned int lineVer = rows + 1;
+void printAdjacencyMatrix(std::vector<std::vector<char>> & grid, size_t rows, size_t cols)
+{	
+	const size_t lineHor = cols + 1;
+	const size_t lineVer = rows + 1;
 	std::cout << "\033[1;36mADJACENCY MATRIX OF " << rows << " * " << cols << " SQUARE GRID \033[0m\n\n";
 	
 	for (size_t i = 0; i < lineHor * lineVer; ++i)

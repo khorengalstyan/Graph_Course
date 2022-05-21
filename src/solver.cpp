@@ -12,19 +12,21 @@
 void solver()
 {
 	printSolution();
-	int rows,cols;
+	size_t rows,cols;
 	rows = cols = 0;	
 	rows = inputSize(rows,"rows");
     cols = inputSize(cols,"cols");
     size_t edge = (rows + 1) * cols + (cols + 1) * rows;
-    unsigned int matrix_size = (rows + 1) * (cols + 1);
+    size_t matrix_size = (rows + 1) * (cols + 1);
 	std::vector<std::vector<char>> grid(matrix_size, std::vector<char>(matrix_size));
     getAdjacencyMatrix(grid, cols, rows);
     char isMade = grid[0][1];
+	system("clear");
     if (isMade == '1' && matrix_size < 53)
     {
         printAdjacencyMatrix(grid, rows, cols);
     }
+	
     printGraph(rows, cols);
     std::ofstream myFile("data/coverage.txt", std::ofstream::out | std::ofstream::trunc);
 
