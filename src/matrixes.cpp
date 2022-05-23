@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <fstream>
 #include <iostream>
 
@@ -8,15 +9,12 @@ void getAdjacencyMatrix(std::vector<std::vector<char>> & grid, size_t rows, size
 	std::ofstream myFile("data/adjacency_matrix.txt", std::ofstream::out | std::ofstream::trunc);
 	const size_t lineHor = cols + 1;
 	const size_t lineVer = rows + 1;
-	
-	for (size_t i = 0; i < lineHor * lineVer; ++i)
+		
+	for (size_t i = 0; i <  lineHor * lineVer; ++i)
 	{
-		for (size_t j = 0; j < lineHor * lineVer; ++j)
-		{
-			grid[i][j] = '.';
-		}
+		std::fill(grid[i].begin(),grid[i].end(),'.');
 	}
-
+	
 	for (size_t i = 0; i < lineVer * lineHor - lineVer; ++i)
     {
     	if (i % lineVer != rows)

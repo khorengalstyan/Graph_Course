@@ -72,13 +72,13 @@ void printCoverage(size_t rows, size_t cols)
 		
 	if (edge % 3 == 0 && edge != 0)
 	{		
-		std::cout << "\033[1;32m		       COVERAGE\033[0m" << std::endl;
+		std::cout << "\033[1;32m	COVERAGE\033[0m" << std::endl;
 		size_t count = 0;
 		myFile<<"Coverage of " << rows << " * " << cols <<" grid graph\n";
 		for (size_t i = 0; i < threeLengthChains.size(); ++i)
 		{	
 			myFile << count + 1 << ") "  << std::get<0>(threeLengthChains[i]) << " --> " << std::get<1>(threeLengthChains[i]) << " --> " << std::get<2>(threeLengthChains[i]) << " --> " << std::get<3>(threeLengthChains[i]) << "\n";
-			std::cout << "\033[1;31m              " << count + 1 << ") \033[0m" << "\033[1;34m" << std::get<0>(threeLengthChains[i]) << " --> " << std::get<1>(threeLengthChains[i]) << " --> " << std::get<2>(threeLengthChains[i]) << " --> " << std::get<3>(threeLengthChains[i]) << "\033[0m\n";
+			std::cout << "\033[1;31m" << count + 1 << ") \033[0m" << "\033[1;34m" << std::get<0>(threeLengthChains[i]) << " --> " << std::get<1>(threeLengthChains[i]) << " --> " << std::get<2>(threeLengthChains[i]) << " --> " << std::get<3>(threeLengthChains[i]) << "\033[0m\n";
 			++count;
 		}
 		std::cout << std::endl;

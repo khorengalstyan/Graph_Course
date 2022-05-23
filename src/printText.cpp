@@ -14,9 +14,9 @@ void printGuideText()
 	cout<<"\t\t\t\t\t\033[1;35m   chains when either both the rows and the columns\033[0m\n";
 	cout<<"\t\t\t\t\t\033[1;35m   are multiples of 3 or both are divisible by 2 re\033[0m\n";
 	cout<<"\t\t\t\t\t\033[1;35m   mainders of three.\033[0m\n";
-	cout<<"\t\t\t\t\t\033[1;35m   Choosing Solution from menu you can increase the \033[0m\n";
-	cout<<"\t\t\t\t\t\033[1;35m   amount of rows or columns with ↑ or decrease  it \033[0m\n";
-	cout<<"\t\t\t\t\t\033[1;35m   with ↓.After that the square grid and  adjacency \033[0m\n";
+	cout<<"\t\t\t\t\t\033[1;35m   Choosing Solution from menu you can increase amo \033[0m\n";
+	cout<<"\t\t\t\t\t\033[1;35m   unt of rows or columns with ↑ or decrease  it wi \033[0m\n";
+	cout<<"\t\t\t\t\t\033[1;35m   th ↓. After that the square grid  and  adjacency \033[0m\n";
 	cout<<"\t\t\t\t\t\033[1;35m   matrix of it is created and if it  is  coverable \033[0m\n";
 	cout<<"\t\t\t\t\t\033[1;35m   with three length simple chains then you can see \033[0m\n";
 	cout<<"\t\t\t\t\t\033[1;35m   the coverage, otherwise you can  see  a  message \033[0m\n";
