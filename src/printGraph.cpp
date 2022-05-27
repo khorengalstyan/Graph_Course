@@ -11,10 +11,7 @@ void printGraph(unsigned int cols, unsigned int rows)
 	std::vector<std::vector<std::string>> graph(5 * lineHor, std::vector<std::string>(7 * lineVer));
 	for (size_t i = 0; i < 5 * lineHor; ++i)
 	{
-    	for (size_t j = 0; j < 7 * lineVer; ++j)
-		{
-			graph[i][j] = ' ';
-		}
+    	std::fill(graph[i].begin(), graph[i].end(), " ");
 	}
 
 	for (size_t i = 0; i < 5 * lineHor; ++i)
@@ -40,7 +37,7 @@ void printGraph(unsigned int cols, unsigned int rows)
 		{
 			if (i == 0)
 			{
-				std::string c = std::__cxx11::to_string(j / 7);
+				std::string c = std::to_string(j / 7);
 				if (c.length() > 1)
 				{
 					for (size_t t = 0; t < c.length(); ++t)
@@ -60,7 +57,7 @@ void printGraph(unsigned int cols, unsigned int rows)
 			}
 			else
 			{
-				std::string c = std::__cxx11::to_string(i / 5 + j / 7 + (i / 5) * rows);
+				std::string c = std::to_string(i / 5 + j / 7 + (i / 5) * rows);
                 if (c.length() > 1)
                 {
                     for (size_t t = 0; t < c.length(); ++t)

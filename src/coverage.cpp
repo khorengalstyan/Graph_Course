@@ -67,10 +67,10 @@ void threeLenghtSimpleChainCoverage(size_t rows, size_t cols)
 
 void printCoverage(size_t rows, size_t cols)
 {
-	size_t edge = rows * (cols + 1) + cols * (rows + 1);
+	size_t edges = rows * (cols + 1) + cols * (rows + 1);
 	std::ofstream myFile("data/coverage.txt", std::ofstream::out | std::ofstream::trunc);
 		
-	if (edge % 3 == 0 && edge != 0)
+	if (edges % 3 == 0 && edges != 0)
 	{		
 		std::cout << "\033[1;32m	COVERAGE\033[0m" << std::endl;
 		size_t count = 0;
@@ -91,6 +91,6 @@ void printNoCoverage(size_t rows, size_t cols)
 {
     std::cout<<"\033[1;31m  HAS NO COVERAGE\033[0m\n";
 	std::ofstream myFile("data/coverage.txt", std::ofstream::out | std::ofstream::trunc);
-	myFile<<rows<<" * " << cols << " grid graph has no ceverage\n";
+	myFile<<rows<<" * "<<cols<<" grid graph has no ceverage\n";
 }
 

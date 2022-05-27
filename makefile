@@ -1,9 +1,10 @@
-
 TARGET = ../graph.exe
 FILE1 = data/adjacency_matrix.txt
 FILE2 = data/graph.txt
 FILE3 = data/coverage.txt
 
+BROWSER     =   google-chrome
+LCOVTEST    =   $(TARGET:.exe=.info)
 SRC = src
 INC = include
 BIN = bin
@@ -18,5 +19,6 @@ $(BIN)/$(TARGET) : $(OBJECT)
 
 $(BIN)/%.o : $(SRC)/%.cpp
 		$(CC) $(CFLAGS) -c $< -o $@ 
+
 clear :
-	rm -f $(OBJECT) $(BIN)/$(TARGET) $(FILE1) $(FILE2) $(FILE3)                                                                                       
+	rm -f $(OBJECT) $(BIN)/$(TARGET) $(FILE1) $(FILE2) $(FILE3)  

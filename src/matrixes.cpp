@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 
-#include <../include/matrixes.hpp>
+#include "../include/matrixes.hpp"
 
 void getAdjacencyMatrix(std::vector<std::vector<char>> & grid, size_t rows, size_t cols)
 {
@@ -12,7 +12,7 @@ void getAdjacencyMatrix(std::vector<std::vector<char>> & grid, size_t rows, size
 		
 	for (size_t i = 0; i <  lineHor * lineVer; ++i)
 	{
-		std::fill(grid[i].begin(),grid[i].end(),'.');
+		std::fill(grid[i].begin(), grid[i].end(), '.');
 	}
 	
 	for (size_t i = 0; i < lineVer * lineHor - lineVer; ++i)

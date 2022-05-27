@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "printAscii.hpp"
+#include "../include/printAscii.hpp"
 
 using std::cout;
 
