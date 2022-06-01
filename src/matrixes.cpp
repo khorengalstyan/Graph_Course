@@ -45,9 +45,7 @@ void getAdjacencyMatrix(std::vector<std::vector<char>> & grid, size_t rows, size
 			myFile << " " << i;
 		}
 	}
-
 	myFile << "\n";
-	
 	for (size_t i = 0; i < lineHor * lineVer; ++i)
 	{
 		if (i < 10)
@@ -81,6 +79,7 @@ void getAdjacencyMatrix(std::vector<std::vector<char>> & grid, size_t rows, size
 		myFile << "\n";
 	}
 	myFile.close();
+
 }
  	
 void printAdjacencyMatrix(std::vector<std::vector<char>> & grid, size_t rows, size_t cols)

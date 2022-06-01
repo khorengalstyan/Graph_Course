@@ -14,11 +14,18 @@ enum keys
 	ESC = 27,
 };
 	
-int inputSize(size_t size,std::string name)
+size_t inputSize(size_t size,std::string name,std::string whatToPrint)
 {
 	cbreak();
 	system("clear");
-	printSolution();
+	if (whatToPrint == "printSolution")
+	{
+		printSolution();
+	}
+	else if (whatToPrint == "printGraphViz")
+	{
+		printGraphViz();
+	}
 	size = 0;
 	std::cout <<"\n\n\t\t\t\t\t\t\t   "<< "\033[1;32m" << name << " : " << size <<" ↑ ↓\033[0m\033[0m" << std::endl;
 	while(1)
@@ -31,7 +38,14 @@ int inputSize(size_t size,std::string name)
             case keys::UP:
             {
                 system("clear");
-				printSolution();
+				if (whatToPrint == "printSolution")
+				{
+					printSolution();
+			    }		
+			    else if (whatToPrint == "printGraphViz")
+			    {
+					printGraphViz();
+			    }	
                 ++size;
                 std::cout <<"\n\n\t\t\t\t\t\t\t   "<< "\033[1;32m" << name << " : " << size <<" ↑ ↓\033[0m\033[0m" << std::endl;
                 break;
@@ -41,7 +55,15 @@ int inputSize(size_t size,std::string name)
                 if (size > 0)
                 {
 					system("clear");
-					printSolution();
+					if (whatToPrint == "printSolution")
+				    {
+				        printSolution();
+				    }
+				    else if (whatToPrint == "printGraphViz")
+				    {
+				        printGraphViz();
+				    }
+
                     --size;
 					std::cout <<"\n\n\t\t\t\t\t\t\t   "<< "\033[1;32m" << name << " : " << size <<" ↑ ↓\033[0m\033[0m" << std::endl;
                     break;

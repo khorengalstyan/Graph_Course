@@ -14,8 +14,8 @@ void solver()
 	printSolution();
 	size_t rows,cols;
 	rows = cols = 0;	
-	rows = inputSize(rows, "rows");
-    cols = inputSize(cols, "cols");
+	rows = inputSize(rows, "rows","printSolution");
+    cols = inputSize(cols, "cols","printSolution");
     size_t edge = (rows + 1) * cols + (cols + 1) * rows;
     size_t matrixSize = (rows + 1) * (cols + 1);
 	std::vector<std::vector<char>> grid(matrixSize, std::vector<char>(matrixSize));

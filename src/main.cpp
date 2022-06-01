@@ -6,6 +6,7 @@
 #include "../include/printAscii.hpp"
 #include "../include/printText.hpp"
 #include "../include/gotoXY.hpp"
+#include "../include/graphViz.hpp"
 
 
 enum keys
@@ -41,7 +42,7 @@ int main()
                 --point;
                 if (point == 0)
                 {
-                    point = 3;
+                    point = 4;
                 }
                 Menu(point);
                 break;
@@ -49,7 +50,7 @@ int main()
             case keys::DOWN : case keys::S:
             {
                 ++point;
-                if (point == 4)
+                if (point == 5)
                 {
                     point = 1;
                 }
@@ -60,6 +61,7 @@ int main()
             {
                 if (point == 1)
                 {
+					system("clear");
                     solver();
 					gotoXY(110,40);
 					std::cout<<"\033[1;35mTAP ESC FOR MENU\033[0m\n";
@@ -74,7 +76,14 @@ int main()
 					std::cout<<"\033[1;35mTAP ESC FOR MENU\033[0m\n";
                     break;
                 }
-                if (point == 3)
+				if (point == 3)
+				{
+					system("clear");
+					graphViz();
+					break;
+				}
+
+                if (point == 4)
                 {
 					system("clear");
                     normal();

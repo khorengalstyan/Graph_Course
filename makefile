@@ -2,6 +2,8 @@ TARGET = ../graph.exe
 FILE1 = data/adjacency_matrix.txt
 FILE2 = data/graph.txt
 FILE3 = data/coverage.txt
+FILE4 = data/GraphViz.dot
+FILE5 = data/GraphViz.dot.png
 
 BROWSER     =   google-chrome
 LCOVTEST    =   $(TARGET:.exe=.info)
@@ -21,4 +23,4 @@ $(BIN)/%.o : $(SRC)/%.cpp
 		$(CC) $(CFLAGS) -c $< -o $@ 
 
 clear :
-	rm -f $(OBJECT) $(BIN)/$(TARGET) $(FILE1) $(FILE2) $(FILE3)  
+	rm -f $(OBJECT) $(BIN)/$(TARGET) $(FILE1) $(FILE2) $(FILE3) $(FILE4) $(FILE5) 
