@@ -20,21 +20,21 @@ void graphViz()
 	size_t matrixSize = (rows + 1) * (cols + 1);
     std::vector<std::vector<char>> graphViz(matrixSize, std::vector<char>(matrixSize));
     getAdjacencyMatrix(graphViz, cols, rows);
-    std::ofstream GraphViz("data/GraphViz.dot", std::ofstream::out | std::ofstream::trunc);
-	GraphViz<<"graph G {\n";
-	for (size_t i = 1; i < matrixSize; ++i)
+    std::fstream graphVizFile("data/graphViz.dot", std::ofstream::out | std::ofstream::trunc);
+	graphVizFile<<"graph G {\n";
+	for (size_t i = 0; i < matrixSize; ++i)
 	{
 		for (size_t j = 0; j < i; ++j)
 		{
 			if (graphViz[i][j] == '1')
 			{
-				GraphViz<<i<<" -- "<<j<<"  \n";
+				graphVizFile<<i<<" -- "<<j<<"\n";
 			}
 		}
 	}
-    GraphViz<<"}";
-	GraphViz.close();
-	system("dot -Tpng -O data/GraphViz.dot && xdg-open data/GraphViz.dot.png");
+    graphVizFile<<"}";
+	graphVizFile.close();
+	system("dot -Tpng -O data/graphViz.dot && xdg-open data/graphViz.dot.png");
 	gotoXY(40,50);
 	std::cout<<"\033[1;34m Graph Vizualization is now in data directory\033[0m\n";
 }

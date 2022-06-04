@@ -2,8 +2,8 @@ TARGET = ../graph.exe
 FILE1 = data/adjacency_matrix.txt
 FILE2 = data/graph.txt
 FILE3 = data/coverage.txt
-FILE4 = data/GraphViz.dot
-FILE5 = data/GraphViz.dot.png
+FILE4 = data/graphViz.dot
+FILE5 = data/graphViz.dot.png
 
 BROWSER     =   google-chrome
 LCOVTEST    =   $(TARGET:.exe=.info)
